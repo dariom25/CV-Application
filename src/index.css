@@ -1,0 +1,9 @@
+:root{
+    --main-background: #FAF9F9;
+    --main-font-color: #191516;
+    --accent-font-color: #3772FF;
+    --accent-background: #BEE3DB;
+    --red-pink-color: #AF3B6E;
+
+    box-sizing: border-box;
+}
