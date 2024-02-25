@@ -1,0 +1,29 @@
+.small {
+  font-size: clamp(1rem, 7.5vw + 0.5rem, 2rem);
+}
+
+.medium {
+  font-size: clamp(2rem, 7.5vw + 0.5rem, 3rem);
+}
+
+.large {
+  font-size: clamp(3rem, 7.5vw + 0.5rem, 4rem);
+}
+
+.button {
+  background-color: var(--accent-font-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--main-background);
+}
+
+.button:hover {
+  transform: scale(102%);
+  transition: 0.3s ease-in-out 0.15s;
+  background-color: var(--accent-font-color);
+}
+
+.button.large {
+  padding: 0px clamp(10vw, 5vw, 20vw);
+}
