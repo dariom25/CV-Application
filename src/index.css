@@ -1,9 +1,9 @@
-:root{
-    --main-background: #FAF9F9;
-    --main-font-color: #191516;
-    --accent-font-color: #3772FF;
-    --accent-background: #BEE3DB;
-    --red-pink-color: #AF3B6E;
+:root {
+  --main-background: #faf9f9;
+  --main-font-color: #191516;
+  --accent-font-color: #3772ff;
+  --accent-background: #bee3db;
+  --red-pink-color: #af3b6e;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
