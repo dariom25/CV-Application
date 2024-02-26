@@ -1,0 +1,13 @@
+.landing-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: var(--accent-background);
+    border-radius: 10px;
+    padding: 20px;
+
+    text-align: center;
+}
+
