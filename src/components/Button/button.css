@@ -20,10 +20,14 @@
 
 .button:hover {
   transform: scale(102%);
-  transition: 0.3s ease-in-out 0.15s;
-  background-color: var(--accent-font-color);
+  transition: 0.3s;
+  background-color: var(--darker-accent-font-color);
 }
 
 .button.large {
   padding: 0px clamp(10vw, 5vw, 20vw);
+}
+
+.button.medium {
+  padding: 0px clamp(8vw, 5vw,17vw);
 }
