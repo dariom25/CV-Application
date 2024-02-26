@@ -2,8 +2,16 @@
   --main-background: #faf9f9;
   --main-font-color: #191516;
   --accent-font-color: #3772ff;
+  --darker-accent-font-color: #1c5bec;
   --accent-background: #bee3db;
   --red-pink-color: #af3b6e;
 
   box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 200px;
 }
