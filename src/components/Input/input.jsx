@@ -1,14 +1,17 @@
+import "./input.css"
+
+/*muss hier nen state hin statt value=""?*/
+
 function Input({
   type = "text",
   placeholder,
-  labelText,
+  labelText = "",
   inputDescription,
-  value = "",
 }) {
   return (
     <div className={`input-container ${inputDescription}`}>
       <label htmlFor={inputDescription}>{labelText}</label>
-      <input id={inputDescription} type={type} placeholder={placeholder} value={value} />
+      <input id={inputDescription} type={type} placeholder={placeholder}/>
     </div>
   );
 }
