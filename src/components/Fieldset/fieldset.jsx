@@ -1,3 +1,5 @@
+import "./fieldset.css"
+
 function Fieldset({ legend, children, className }) {
   return (
     <fieldset className={`fieldset ${className}`}>
