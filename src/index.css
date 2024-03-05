@@ -7,6 +7,8 @@
   --red-pink-color: #af3b6e;
 
   box-sizing: border-box;
+
+  color: var(--main-font-color);
 }
 
 body{
