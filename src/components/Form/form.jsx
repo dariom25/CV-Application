@@ -1,5 +1,6 @@
 import { Input } from "../Input/input";
 import { Button } from "../Button/button";
+import { Fieldset } from "../Fieldset/fieldset";
 import "./form.css";
 
 function Form() {
@@ -9,8 +10,10 @@ function Form() {
         <h2>Enter your data here: </h2>
         <Button text={"X"} size={"small"} />
       </div>
-      <fieldset className={"personal-information"}>
-        <legend>Personal Information</legend>
+      <Fieldset
+        className={"personal-information"}
+        legend={"Personal Information"}
+      >
         <Input
           placeholder={"Max"}
           labelText={"First name: "}
@@ -34,12 +37,11 @@ function Form() {
         <Input
           type={"email"}
           placeholder={"example@name.com"}
-          labelText={"Enter your mail address: "}
+          labelText={"Mail address: "}
           inputDescription={"mail"}
         />
-      </fieldset>
-      <fieldset className={"contact-details"}>
-        <legend>Contact Details</legend>
+      </Fieldset>
+      <Fieldset legend={"Contact Details"} className={"contact-details"}>
         <Input
           placeholder={"Exampleroad 45"}
           labelText={"Address: "}
@@ -60,7 +62,7 @@ function Form() {
           labelText={"Country:"}
           inputDescription={"country"}
         />
-      </fieldset>
+      </Fieldset>
 
       <Button text={"Next"} size={"small"} />
     </form>
