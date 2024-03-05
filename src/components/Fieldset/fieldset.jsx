@@ -1,6 +1,6 @@
 function Fieldset({ legend, children, className }) {
   return (
-    <fieldset className={className}>
+    <fieldset className={`fieldset ${className}`}>
       <legend>{legend}</legend>
       {children}
     </fieldset>
