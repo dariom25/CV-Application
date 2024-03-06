@@ -77,7 +77,14 @@ function Form() {
         </Fieldset>
       )}
 
-
+      {formPage === 2 && (
+        <Fieldset
+          legend={"Educational Information"}
+          className={"educational-information"}
+        >
+          <SchoolInformation/>
+        </Fieldset>
+      )}
 
       {formPage !== 3 && (
         <Button text={"Next"} size={"small"} onClick={handleNextButtonClick} />
