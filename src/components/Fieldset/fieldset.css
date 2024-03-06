@@ -7,6 +7,10 @@
     border-radius: 10px;
 }
 
+.fieldset.educational-information{
+    gap: 30px 10px;
+}
+
 legend{
     font-weight: 600;
     font-size: 1.1rem;
