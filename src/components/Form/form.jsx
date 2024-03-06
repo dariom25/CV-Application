@@ -9,11 +9,12 @@ function Form() {
   const [formPage, setFormPage] = useState(1);
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
     useState(1);
-  
+  const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] = useState(1)
+
   const handleBackButtonClick = (e) => {
     e.preventDefault();
-    setFormPage(formPage -1)
-  }
+    setFormPage(formPage - 1);
+  };
 
   const handleNextButtonClick = (e) => {
     e.preventDefault();
@@ -33,6 +34,13 @@ function Form() {
     }
     return educationalExperiences;
   };
+
+  const calculateNumberOfPracticalExperiences = () => {
+    let practicalExperiences = [];
+    for (let i = 0; i < numberOfPracticalExperiences; i++) {
+      practicalExperiences.push(<SchoolInformation/>)
+    }
+  }
 
   return (
     <form className={"form"}>
@@ -106,8 +114,24 @@ function Form() {
           {calculateEducationalExperiences()}
         </Fieldset>
       )}
+
+      {formPage === 3 && (
+        <Fieldset
+          legend={"Practical Experience"}
+          className={"practical-experience"}
+        >
+          {calculateEducationalExperiences()}
+        </Fieldset>
+      )}
+
       <div className="navigational-button-container">
-        {formPage !== 1 && <Button text={"Back"} size={"small"} onClick={handleBackButtonClick} />}
+        {formPage !== 1 && (
+          <Button
+            text={"Back"}
+            size={"small"}
+            onClick={handleBackButtonClick}
+          />
+        )}
         {formPage === 2 && (
           <Button
             text={"+"}
@@ -115,12 +139,7 @@ function Form() {
             onClick={handleSetNumberOfEducationalExperiences}
           />
         )}
-        {formPage === 3 && (
-          <Button
-            text={"+"}
-            size={"small"}
-          />
-        )}
+        {formPage === 3 && <Button text={"+"} size={"small"} onClick={calculateNumberOfPracticalExperiences}/>}
 
         {formPage !== 3 && (
           <Button
