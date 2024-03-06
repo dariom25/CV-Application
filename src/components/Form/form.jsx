@@ -9,6 +9,11 @@ function Form() {
   const [formPage, setFormPage] = useState(1);
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
     useState(1);
+  
+  const handleBackButtonClick = (e) => {
+    e.preventDefault();
+    setFormPage(formPage -1)
+  }
 
   const handleNextButtonClick = (e) => {
     e.preventDefault();
@@ -102,12 +107,18 @@ function Form() {
         </Fieldset>
       )}
       <div className="navigational-button-container">
-        {formPage !== 1 && <Button text={"Back"} size={"small"} />}
-        {formPage !== 1 && (
+        {formPage !== 1 && <Button text={"Back"} size={"small"} onClick={handleBackButtonClick} />}
+        {formPage === 2 && (
           <Button
             text={"+"}
             size={"small"}
             onClick={handleSetNumberOfEducationalExperiences}
+          />
+        )}
+        {formPage === 3 && (
+          <Button
+            text={"+"}
+            size={"small"}
           />
         )}
 
@@ -118,6 +129,8 @@ function Form() {
             onClick={handleNextButtonClick}
           />
         )}
+
+        {formPage === 3 && <Button text={"Submit"} size={"small"} />}
       </div>
     </form>
   );
