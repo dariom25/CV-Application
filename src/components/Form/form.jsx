@@ -7,10 +7,26 @@ import { SchoolInformation } from "../SchoolInformation/schoolInformation";
 
 function Form() {
   const [formPage, setFormPage] = useState(1);
+  const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
+    useState(1);
 
   const handleNextButtonClick = (e) => {
     e.preventDefault();
     setFormPage(formPage + 1);
+  };
+
+  const handleSetNumberOfEducationalExperiences = (e) => {
+    e.preventDefault();
+    setNumberOfEducationalExperiences(numberOfEducationalExperiences + 1);
+    console.log(numberOfEducationalExperiences);
+  };
+
+  const calculateEducationalExperiences = () => {
+    let educationalExperiences = [];
+    for (let i = 0; i < numberOfEducationalExperiences; i++) {
+      educationalExperiences.push(<SchoolInformation />);
+    }
+    return educationalExperiences;
   };
 
   return (
@@ -82,13 +98,27 @@ function Form() {
           legend={"Educational Information"}
           className={"educational-information"}
         >
-          <SchoolInformation/>
+          {calculateEducationalExperiences()}
         </Fieldset>
       )}
+      <div className="navigational-button-container">
+        {formPage !== 1 && <Button text={"Back"} size={"small"} />}
+        {formPage !== 1 && (
+          <Button
+            text={"+"}
+            size={"small"}
+            onClick={handleSetNumberOfEducationalExperiences}
+          />
+        )}
 
-      {formPage !== 3 && (
-        <Button text={"Next"} size={"small"} onClick={handleNextButtonClick} />
-      )}
+        {formPage !== 3 && (
+          <Button
+            text={"Next"}
+            size={"small"}
+            onClick={handleNextButtonClick}
+          />
+        )}
+      </div>
     </form>
   );
 }
