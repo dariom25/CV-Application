@@ -1,4 +1,4 @@
-//import "./schoolInformation.css";
+import "./schoolInformation.css";
 import { Input } from "../Input/input";
 
 function SchoolInformation() {
