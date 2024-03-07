@@ -5,6 +5,7 @@ import "./form.css";
 import { useState } from "react";
 import { SchoolInformation } from "../SchoolInformation/schoolInformation";
 import { PracticalExperience } from "../PracticalExperience/practicalExperience";
+import { v4 as uuidv4 } from "uuid";
 
 function Form() {
   const [formPage, setFormPage] = useState(1);
@@ -31,7 +32,7 @@ function Form() {
   const calculateEducationalExperiences = () => {
     let educationalExperiences = [];
     for (let i = 0; i < numberOfEducationalExperiences; i++) {
-      educationalExperiences.push(<SchoolInformation />);
+      educationalExperiences.push(<SchoolInformation key={uuidv4()} />);
     }
     return educationalExperiences;
   };
@@ -44,16 +45,15 @@ function Form() {
   const calculateNumberOfPracticalExperiences = () => {
     let practicalExperiences = [];
     for (let i = 0; i < numberOfPracticalExperiences; i++) {
-      practicalExperiences.push(<PracticalExperience />);
+      practicalExperiences.push(<PracticalExperience key={uuidv4()} />);
     }
-    return practicalExperiences
+    return practicalExperiences;
   };
 
   return (
     <form className={"form"}>
       <div className={"formheader"}>
-        <h2>Enter your data here: </h2>
-        <Button text={"X"} size={"small"} />
+        <h2>Please enter your data here: </h2>
       </div>
       {formPage === 1 && (
         <Fieldset
@@ -162,7 +162,7 @@ function Form() {
           />
         )}
 
-        {formPage === 3 && <Button text={"Submit"} size={"small"} />}
+        {formPage === 3 && <Button text={"Display CV"} size={"small"} />}
       </div>
     </form>
   );
