@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 function Form() {
   const [formPage, setFormPage] = useState(1);
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
-    useState(1);
+    useState([<SchoolInformation key={uuidv4()}/>]);
   const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] =
     useState(1);
 
@@ -26,18 +26,8 @@ function Form() {
 
   const handleSetNumberOfEducationalExperiences = (e) => {
     e.preventDefault();
-    setNumberOfEducationalExperiences(numberOfEducationalExperiences + 1);
+    setNumberOfEducationalExperiences([...numberOfEducationalExperiences, <SchoolInformation key={uuidv4()}/>]);
   };
-
-  const calculateEducationalExperiences = () => {
-    let educationalExperiences = [];
-    for (let i = 0; i < numberOfEducationalExperiences; i++) {
-      educationalExperiences.push(<SchoolInformation key={uuidv4()} />);
-    }
-    return educationalExperiences;
-  };
-
-  const educationalExperiences = calculateEducationalExperiences()
 
   const handleSetNumberOfPracticalExperiences = (e) => {
     e.preventDefault();
@@ -47,7 +37,7 @@ function Form() {
   const calculateNumberOfPracticalExperiences = () => {
     let practicalExperiences = [];
     for (let i = 0; i < numberOfPracticalExperiences; i++) {
-      practicalExperiences.push(<PracticalExperience key={uuidv4()} />);
+      practicalExperiences.push(<PracticalExperience/>);
     }
     return practicalExperiences;
   };
@@ -122,7 +112,7 @@ function Form() {
           legend={"Educational Information"}
           className={"educational-information"}
         >
-          {educationalExperiences}
+          {numberOfEducationalExperiences}
         </Fieldset>
       )}
 
