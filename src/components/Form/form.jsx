@@ -12,7 +12,7 @@ function Form() {
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
     useState([<SchoolInformation key={uuidv4()}/>]);
   const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] =
-    useState(1);
+    useState([<PracticalExperience key={uuidv4()}/>]);
 
   const handleBackButtonClick = (e) => {
     e.preventDefault();
@@ -31,18 +31,8 @@ function Form() {
 
   const handleSetNumberOfPracticalExperiences = (e) => {
     e.preventDefault();
-    setNumberOfPracticalExperiences(numberOfPracticalExperiences + 1);
+    setNumberOfPracticalExperiences([...numberOfPracticalExperiences, <PracticalExperience key={uuidv4()}/>]);
   };
-
-  const calculateNumberOfPracticalExperiences = () => {
-    let practicalExperiences = [];
-    for (let i = 0; i < numberOfPracticalExperiences; i++) {
-      practicalExperiences.push(<PracticalExperience/>);
-    }
-    return practicalExperiences;
-  };
-
-  const practicalExperiences = calculateNumberOfPracticalExperiences()
 
   return (
     <form className={"form"}>
@@ -121,7 +111,7 @@ function Form() {
           legend={"Practical Experience"}
           className={"practical-experience"}
         >
-          {practicalExperiences}
+          {numberOfPracticalExperiences}
         </Fieldset>
       )}
 
