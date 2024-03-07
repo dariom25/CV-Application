@@ -4,12 +4,14 @@ import { Fieldset } from "../Fieldset/fieldset";
 import "./form.css";
 import { useState } from "react";
 import { SchoolInformation } from "../SchoolInformation/schoolInformation";
+import { PracticalExperience } from "../PracticalExperience/practicalExperience";
 
 function Form() {
   const [formPage, setFormPage] = useState(1);
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
     useState(1);
-  const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] = useState(1)
+  const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] =
+    useState(1);
 
   const handleBackButtonClick = (e) => {
     e.preventDefault();
@@ -24,7 +26,6 @@ function Form() {
   const handleSetNumberOfEducationalExperiences = (e) => {
     e.preventDefault();
     setNumberOfEducationalExperiences(numberOfEducationalExperiences + 1);
-    console.log(numberOfEducationalExperiences);
   };
 
   const calculateEducationalExperiences = () => {
@@ -35,12 +36,18 @@ function Form() {
     return educationalExperiences;
   };
 
+  const handleSetNumberOfPracticalExperiences = (e) => {
+    e.preventDefault();
+    setNumberOfPracticalExperiences(numberOfPracticalExperiences + 1);
+  };
+
   const calculateNumberOfPracticalExperiences = () => {
     let practicalExperiences = [];
     for (let i = 0; i < numberOfPracticalExperiences; i++) {
-      practicalExperiences.push(<SchoolInformation/>)
+      practicalExperiences.push(<PracticalExperience />);
     }
-  }
+    return practicalExperiences
+  };
 
   return (
     <form className={"form"}>
@@ -120,7 +127,7 @@ function Form() {
           legend={"Practical Experience"}
           className={"practical-experience"}
         >
-          {calculateEducationalExperiences()}
+          {calculateNumberOfPracticalExperiences()}
         </Fieldset>
       )}
 
@@ -139,7 +146,13 @@ function Form() {
             onClick={handleSetNumberOfEducationalExperiences}
           />
         )}
-        {formPage === 3 && <Button text={"+"} size={"small"} onClick={calculateNumberOfPracticalExperiences}/>}
+        {formPage === 3 && (
+          <Button
+            text={"+"}
+            size={"small"}
+            onClick={handleSetNumberOfPracticalExperiences}
+          />
+        )}
 
         {formPage !== 3 && (
           <Button
