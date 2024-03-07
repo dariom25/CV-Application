@@ -7,7 +7,7 @@
     border-radius: 10px;
 }
 
-.fieldset.educational-information{
+.fieldset.educational-information, .fieldset.practical-experience{
     gap: 30px 10px;
 }
 
