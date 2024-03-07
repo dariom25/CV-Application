@@ -37,6 +37,8 @@ function Form() {
     return educationalExperiences;
   };
 
+  const educationalExperiences = calculateEducationalExperiences()
+
   const handleSetNumberOfPracticalExperiences = (e) => {
     e.preventDefault();
     setNumberOfPracticalExperiences(numberOfPracticalExperiences + 1);
@@ -49,6 +51,8 @@ function Form() {
     }
     return practicalExperiences;
   };
+
+  const practicalExperiences = calculateNumberOfPracticalExperiences()
 
   return (
     <form className={"form"}>
@@ -118,7 +122,7 @@ function Form() {
           legend={"Educational Information"}
           className={"educational-information"}
         >
-          {calculateEducationalExperiences()}
+          {educationalExperiences}
         </Fieldset>
       )}
 
@@ -127,7 +131,7 @@ function Form() {
           legend={"Practical Experience"}
           className={"practical-experience"}
         >
-          {calculateNumberOfPracticalExperiences()}
+          {practicalExperiences}
         </Fieldset>
       )}
 
