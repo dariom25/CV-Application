@@ -1,9 +1,9 @@
 import "./practicalExperience.css";
 import { Input } from "../Input/input";
 
-function PracticalExperience() {
+function PracticalExperience({key}) {
   return (
-    <div className="practical-information">
+    <div className="practical-information" key={key}>
       <Input
         placeholder={"Example Comany SE"}
         labelText={"Company Name: "}
@@ -15,7 +15,7 @@ function PracticalExperience() {
         inputDescription={"position-title"}
       />
       <Input
-        placeholder={"Description of your main responsibilities"}
+        placeholder={"Your main responsibilities"}
         labelText={"Main responsibilities and tasks: "}
         inputDescription={"responsibilities"}
       />
