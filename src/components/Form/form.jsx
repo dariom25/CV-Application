@@ -26,12 +26,11 @@ function Form() {
 
   const handleSetNumberOfEducationalExperiences = (e) => {
     e.preventDefault();
-
     setNumberOfEducationalExperiences([
       ...numberOfEducationalExperiences,
       { id: uuidv4() },
     ]);
-    console.log(numberOfEducationalExperiences)
+    console.log(numberOfEducationalExperiences);
   };
 
   const handleSetNumberOfPracticalExperiences = (e) => {

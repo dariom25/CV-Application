@@ -3,7 +3,7 @@ import { Input } from "../Input/input";
 
 function PracticalExperience({key}) {
   return (
-    <div className="practical-information" key={key}>
+    <div className="practical-information" key={key} id={key}>
       <Input
         placeholder={"Example Comany SE"}
         labelText={"Company Name: "}
