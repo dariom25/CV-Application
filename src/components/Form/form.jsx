@@ -49,10 +49,8 @@ function Form() {
   };
 
   const handleRemoveNumberPracticalExperience = (id) => {
-    setNumberOfEducationalExperiences(
-      numberOfPracticalExperiences.filter(
-        (experience) => experience.id !== id,
-      ),
+    setNumberOfPracticalExperiences(
+      numberOfPracticalExperiences.filter((experience) => experience.id !== id),
     );
   };
 
@@ -146,7 +144,7 @@ function Form() {
               <PracticalExperience
                 key={experience.id}
                 id={experience.id}
-                handleRemove={handleRemove}
+                handleRemove={handleRemoveNumberPracticalExperience}
               />
             );
           })}
