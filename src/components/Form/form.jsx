@@ -10,9 +10,9 @@ import { v4 as uuidv4 } from "uuid";
 function Form() {
   const [formPage, setFormPage] = useState(1);
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
-    useState([<SchoolInformation key={uuidv4()}/>]);
+    useState([{ id: uuidv4() }]);
   const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] =
-    useState([<PracticalExperience key={uuidv4()}/>]);
+    useState([<PracticalExperience key={uuidv4()} />]);
 
   const handleBackButtonClick = (e) => {
     e.preventDefault();
@@ -26,12 +26,20 @@ function Form() {
 
   const handleSetNumberOfEducationalExperiences = (e) => {
     e.preventDefault();
-    setNumberOfEducationalExperiences([...numberOfEducationalExperiences, <SchoolInformation key={uuidv4()}/>]);
+
+    setNumberOfEducationalExperiences([
+      ...numberOfEducationalExperiences,
+      { id: uuidv4() },
+    ]);
+    console.log(numberOfEducationalExperiences)
   };
 
   const handleSetNumberOfPracticalExperiences = (e) => {
     e.preventDefault();
-    setNumberOfPracticalExperiences([...numberOfPracticalExperiences, <PracticalExperience key={uuidv4()}/>]);
+    setNumberOfPracticalExperiences([
+      ...numberOfPracticalExperiences,
+      <PracticalExperience key={uuidv4()} />,
+    ]);
   };
 
   return (
@@ -102,7 +110,9 @@ function Form() {
           legend={"Educational Information"}
           className={"educational-information"}
         >
-          {numberOfEducationalExperiences}
+          {numberOfEducationalExperiences.map((experience) => {
+            return <SchoolInformation key={experience.id} id={experience.id} />;
+          })}
         </Fieldset>
       )}
 
