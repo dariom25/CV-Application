@@ -30,7 +30,14 @@ function Form() {
       ...numberOfEducationalExperiences,
       { id: uuidv4() },
     ]);
-    console.log(numberOfEducationalExperiences);
+  };
+
+  const handleRemove = (id) => {
+    setNumberOfEducationalExperiences(
+      numberOfEducationalExperiences.filter(
+        (experience) => experience.id !== id,
+      ),
+    );
   };
 
   const handleSetNumberOfPracticalExperiences = (e) => {
@@ -110,7 +117,13 @@ function Form() {
           className={"educational-information"}
         >
           {numberOfEducationalExperiences.map((experience) => {
-            return <SchoolInformation key={experience.id} id={experience.id} />;
+            return (
+              <SchoolInformation
+                key={experience.id}
+                id={experience.id}
+                handleRemove={handleRemove}
+              />
+            );
           })}
         </Fieldset>
       )}

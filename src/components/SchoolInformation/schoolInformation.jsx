@@ -2,10 +2,10 @@ import "./schoolInformation.css";
 import { Input } from "../Input/input";
 import { Button } from "../Button/button";
 
-function SchoolInformation({id}) {
+function SchoolInformation({id, handleRemove}) {
   const handleRemoveNumberEducationalExperience = (e) => {
     e.preventDefault()
-    console.log(e.target.id)
+    handleRemove(id)
   }
   
   return (
