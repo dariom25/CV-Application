@@ -12,7 +12,7 @@ function Form() {
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
     useState([{ id: uuidv4() }]);
   const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] =
-    useState([<PracticalExperience key={uuidv4()} />]);
+    useState([{ id: uuidv4() }]);
 
   const handleBackButtonClick = (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ function Form() {
     ]);
   };
 
-  const handleRemove = (id) => {
+  const handleRemoveNumberEducationalExperience = (id) => {
     setNumberOfEducationalExperiences(
       numberOfEducationalExperiences.filter(
         (experience) => experience.id !== id,
@@ -44,8 +44,16 @@ function Form() {
     e.preventDefault();
     setNumberOfPracticalExperiences([
       ...numberOfPracticalExperiences,
-      <PracticalExperience key={uuidv4()} />,
+      { id: uuidv4() },
     ]);
+  };
+
+  const handleRemoveNumberPracticalExperience = (id) => {
+    setNumberOfEducationalExperiences(
+      numberOfPracticalExperiences.filter(
+        (experience) => experience.id !== id,
+      ),
+    );
   };
 
   return (
@@ -121,7 +129,7 @@ function Form() {
               <SchoolInformation
                 key={experience.id}
                 id={experience.id}
-                handleRemove={handleRemove}
+                handleRemove={handleRemoveNumberEducationalExperience}
               />
             );
           })}
@@ -133,7 +141,15 @@ function Form() {
           legend={"Practical Experience"}
           className={"practical-experience"}
         >
-          {numberOfPracticalExperiences}
+          {numberOfPracticalExperiences.map((experience) => {
+            return (
+              <PracticalExperience
+                key={experience.id}
+                id={experience.id}
+                handleRemove={handleRemove}
+              />
+            );
+          })}
         </Fieldset>
       )}
 
