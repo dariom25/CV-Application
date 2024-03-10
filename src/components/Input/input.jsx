@@ -1,6 +1,7 @@
+import { useState } from "react";
 import "./input.css"
 
-/*muss hier nen state hin statt value=""?*/
+
 
 function Input({
   type = "text",
@@ -8,10 +9,13 @@ function Input({
   labelText = "",
   inputDescription,
 }) {
+
+  const [value, setValue] = useState("")
+
   return (
     <div className={`input-container ${inputDescription}`}>
       <label htmlFor={inputDescription}>{labelText}</label>
-      <input id={inputDescription} type={type} placeholder={placeholder}/>
+      <input value={value} id={inputDescription} type={type} placeholder={placeholder} onChange={event => setValue(event.target.value)}/>
     </div>
   );
 }
