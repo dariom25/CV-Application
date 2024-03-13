@@ -44,7 +44,7 @@ const inputConfigsContactDetails = [
     type: "text",
   },
   {
-    id: "zip-code",
+    id: "zipCode",
     placeholder: "493842",
     labeltext: "ZIP-Code: ",
     inputDescription: "zip-code",
