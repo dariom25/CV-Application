@@ -1,28 +1,33 @@
 const inputConfigsPersonalInformation = [
   {
+    id: "firstName",
     placeholder: "Max",
     labeltext: "First name: ",
     inputDescription: "first-name",
     type: "text",
   },
   {
+    id: "lastName",
     placeholder: "Mustermann",
     labeltext: "Last name: ",
     inputDescription: "last-name",
     type: "text",
   },
   {
+    id: "birthday",
     labeltext: "Date of birth: ",
     inputDescription: "birthday",
     type: "date",
   },
   {
+    id: "phone",
     placeholder: "+49 3842 93938",
     labeltext: "Phone number: ",
     inputDescription: "phone-number",
     type: "text",
   },
   {
+    id: "mail",
     placeholder: "example@mail.com",
     labeltext: "Mail address: ",
     inputDescription: "mail",
@@ -32,24 +37,28 @@ const inputConfigsPersonalInformation = [
 
 const inputConfigsContactDetails = [
   {
+    id: "address",
     placeholder: "Exampleroad 45",
     labeltext: "Address: ",
     inputDescription: "address",
     type: "text",
   },
   {
+    id: "zip-code",
     placeholder: "493842",
     labeltext: "ZIP-Code: ",
     inputDescription: "zip-code",
     type: "text",
   },
   {
+    id: "city",
     placeholder: "Cityname",
     labeltext: "City: ",
     inputDescription: "city",
     type: "text",
   },
   {
+    id: "country",
     placeholder: "Country",
     labeltext: "Country: ",
     inputDescription: "country",
