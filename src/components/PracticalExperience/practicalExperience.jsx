@@ -11,7 +11,7 @@ function PracticalExperience({id, handleRemove}) {
   return (
     <div className="practical-information" key={id} id={id}>
       <Input
-        placeholder={"Example Comany SE"}
+        placeholder={"Example Company SE"}
         labelText={"Company Name: "}
         inputDescription={"company"}
       />
