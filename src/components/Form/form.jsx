@@ -6,6 +6,8 @@ import { useState } from "react";
 import { SchoolInformation } from "../SchoolInformation/schoolInformation";
 import { PracticalExperience } from "../PracticalExperience/practicalExperience";
 import { v4 as uuidv4 } from "uuid";
+import { inputConfigsPersonalInformation } from "../Input/inputConfig";
+import { inputConfigsContactDetails } from "../Input/inputConfig";
 
 function Form() {
   const [formPage, setFormPage] = useState(1);
@@ -64,56 +66,32 @@ function Form() {
           className={"personal-information"}
           legend={"Personal Information"}
         >
-          <Input
-            placeholder={"Max"}
-            labelText={"First name: "}
-            inputDescription={"first-name"}
-          />
-          <Input
-            placeholder={"Mustermann"}
-            labelText={"Last name: "}
-            inputDescription={"last-name"}
-          />
-          <Input
-            type="date"
-            labelText={"Date of birth: "}
-            inputDescription={"birthday"}
-          />
-          <Input
-            placeholder={"+49 3842 93938"}
-            labelText={"Phone number: "}
-            inputDescription={"phone-number"}
-          />
-          <Input
-            type={"email"}
-            placeholder={"example@name.com"}
-            labelText={"Mail address: "}
-            inputDescription={"mail"}
-          />
+          {inputConfigsPersonalInformation.map((information) => {
+            return (
+              <Input
+                key={information.inputDescription}
+                placeholder={information.placeholder}
+                id={information.inputDescription}
+                labelText={information.labeltext}
+                type={information.type}
+              />
+            );
+          })}
         </Fieldset>
       )}
       {formPage === 1 && (
         <Fieldset legend={"Contact Details"} className={"contact-details"}>
-          <Input
-            placeholder={"Exampleroad 45"}
-            labelText={"Address: "}
-            inputDescription={"address"}
-          />
-          <Input
-            placeholder={"493842"}
-            labelText={"ZIP-Code: "}
-            inputDescription={"zip-code"}
-          />
-          <Input
-            placeholder={"Cityname"}
-            labelText={"City: "}
-            inputDescription={"city"}
-          />
-          <Input
-            placeholder={"Country"}
-            labelText={"Country:"}
-            inputDescription={"country"}
-          />
+          {inputConfigsContactDetails.map((information) => {
+            return (
+              <Input
+                key={information.inputDescription}
+                placeholder={information.placeholder}
+                id={information.inputDescription}
+                labelText={information.labeltext}
+                type={information.type}
+              />
+            );
+          })}
         </Fieldset>
       )}
 
