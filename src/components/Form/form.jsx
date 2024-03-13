@@ -26,6 +26,14 @@ function Form() {
     zipCode: "",
     city: "",
     country: "",
+    school: "",
+    studyTitle: "",
+    schoolFrom: "",
+    schoolTo: "",
+    company: "",
+    responsibilities: "",
+    practicalFrom: "",
+    practicalTo: "",
   });
 
   const handleBackButtonClick = (e) => {
@@ -108,9 +116,11 @@ function Form() {
               <Input
                 key={information.inputDescription}
                 placeholder={information.placeholder}
-                id={information.inputDescription}
+                id={information.id}
                 labelText={information.labeltext}
                 type={information.type}
+                value={formData[information.id]}
+                onChange={handleInputChange}
               />
             );
           })}
