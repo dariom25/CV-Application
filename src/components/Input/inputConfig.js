@@ -68,23 +68,27 @@ const inputConfigsContactDetails = [
 
 const inputConfigsEducationalExperience = [
   {
+    id: "school",
     placeholder: "ABC School",
     labeltext: "School/University/Vocational Service: ",
     inputDescription: "school",
     type: "text",
   },
   {
+    id: "studyTitle",
     placeholder: "e.g. College degree",
     labeltext: "Title of Study: ",
     inputDescription: "study-title",
     type: "text",
   },
   {
+    id: "schoolFrom",
     labeltext: "From: ",
     inputDescription: "school-from",
     type: "date",
   },
   {
+    id: "schoolTo",
     labeltext: "To: ",
     inputDescription: "school-to",
     type: "date",
@@ -93,29 +97,34 @@ const inputConfigsEducationalExperience = [
 
 const inputConfigsPracticalExperience = [
   {
+    id: "company",
     placeholder: "Example Company SE",
     labeltext: "Company Name: ",
     inputDescription: "company",
     type: "text",
   },
   {
+    id: "positionTitle",
     placeholder: "e.g. Junior example role",
     labeltext: "Position Title: ",
     inputDescription: "position-title",
     type: "text",
   },
   {
+    id: "responsibilities",
     placeholder: "Your main responsibilities",
     labeltext: "Main responsibilities and tasks: ",
     inputDescription: "responsibilities",
     type: "text",
   },
   {
+    id: "practicalFrom",
     labeltext: "From: ",
     inputDescription: "practical-from",
     type: "date",
   },
   {
+    id: "practicalTo",
     labeltext: "To: ",
     inputDescription: "practical-to",
     type: "date",
