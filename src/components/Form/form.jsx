@@ -26,7 +26,7 @@ function Form() {
     zipCode: "",
     city: "",
     country: "",
-  })
+  });
 
   const handleBackButtonClick = (e) => {
     e.preventDefault();
@@ -68,6 +68,14 @@ function Form() {
     );
   };
 
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  };
+
   return (
     <form className={"form"}>
       <div className={"formheader"}>
@@ -83,10 +91,11 @@ function Form() {
               <Input
                 key={information.inputDescription}
                 placeholder={information.placeholder}
-                id={information.inputDescription}
+                id={information.id}
                 labelText={information.labeltext}
                 type={information.type}
                 value={formData[information.id]}
+                onChange={handleInputChange}
               />
             );
           })}
