@@ -11,10 +11,22 @@ import { inputConfigsContactDetails } from "../Input/inputConfig";
 
 function Form() {
   const [formPage, setFormPage] = useState(1);
+
   const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
     useState([{ id: uuidv4() }]);
   const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] =
     useState([{ id: uuidv4() }]);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    birthday: "",
+    phone: "",
+    mail: "",
+    address: "",
+    zipCode: "",
+    city: "",
+    country: "",
+  })
 
   const handleBackButtonClick = (e) => {
     e.preventDefault();
@@ -74,6 +86,7 @@ function Form() {
                 id={information.inputDescription}
                 labelText={information.labeltext}
                 type={information.type}
+                value={formData[information.id]}
               />
             );
           })}
