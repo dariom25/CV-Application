@@ -1,14 +1,23 @@
 import "./input.css";
 
-function Input({ inputDescription, id, labelText, type, placeholder, value }) {
+function Input({
+  inputDescription,
+  id,
+  labelText,
+  type,
+  placeholder,
+  value,
+  onChange,
+}) {
   return (
-    <div className={`input-container ${inputDescription}`} id={id}>
+    <div className={`input-container`}>
       <label htmlFor={inputDescription}>{labelText}</label>
       <input
         value={value}
-        id={inputDescription}
+        id={id}
         type={type}
         placeholder={placeholder}
+        onChange={onChange}
       />
     </div>
   );
