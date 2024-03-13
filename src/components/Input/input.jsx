@@ -1,21 +1,15 @@
-import { useState } from "react";
-import "./input.css"
+import "./input.css";
 
-
-
-function Input({
-  type = "text",
-  placeholder,
-  labelText = "",
-  inputDescription,
-}) {
-
-  const [value, setValue] = useState("")
-
+function Input({ inputDescription, id, labelText, type, placeholder, value }) {
   return (
-    <div className={`input-container ${inputDescription}`}>
+    <div className={`input-container ${inputDescription}`} id={id}>
       <label htmlFor={inputDescription}>{labelText}</label>
-      <input value={value} id={inputDescription} type={type} placeholder={placeholder} onChange={event => setValue(event.target.value)}/>
+      <input
+        value={value}
+        id={inputDescription}
+        type={type}
+        placeholder={placeholder}
+      />
     </div>
   );
 }
