@@ -3,19 +3,14 @@ import { Button } from "../Button/button";
 import { Fieldset } from "../Fieldset/fieldset";
 import "./form.css";
 import { useState } from "react";
-import { SchoolInformation } from "../SchoolInformation/schoolInformation";
-import { PracticalExperience } from "../PracticalExperience/practicalExperience";
-import { v4 as uuidv4 } from "uuid";
 import { inputConfigsPersonalInformation } from "../Input/inputConfig";
 import { inputConfigsContactDetails } from "../Input/inputConfig";
+import { inputConfigsEducationalExperience } from "../Input/inputConfig";
+import { inputConfigsPracticalExperience } from "../Input/inputConfig";
 
 function Form() {
   const [formPage, setFormPage] = useState(1);
 
-  const [numberOfEducationalExperiences, setNumberOfEducationalExperiences] =
-    useState([{ id: uuidv4() }]);
-  const [numberOfPracticalExperiences, setNumberOfPracticalExperiences] =
-    useState([{ id: uuidv4() }]);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -31,6 +26,7 @@ function Form() {
     schoolFrom: "",
     schoolTo: "",
     company: "",
+    positionTitle: "",
     responsibilities: "",
     practicalFrom: "",
     practicalTo: "",
@@ -46,42 +42,13 @@ function Form() {
     setFormPage(formPage + 1);
   };
 
-  const handleSetNumberOfEducationalExperiences = (e) => {
-    e.preventDefault();
-    setNumberOfEducationalExperiences([
-      ...numberOfEducationalExperiences,
-      { id: uuidv4() },
-    ]);
-  };
-
-  const handleRemoveNumberEducationalExperience = (id) => {
-    setNumberOfEducationalExperiences(
-      numberOfEducationalExperiences.filter(
-        (experience) => experience.id !== id,
-      ),
-    );
-  };
-
-  const handleSetNumberOfPracticalExperiences = (e) => {
-    e.preventDefault();
-    setNumberOfPracticalExperiences([
-      ...numberOfPracticalExperiences,
-      { id: uuidv4() },
-    ]);
-  };
-
-  const handleRemoveNumberPracticalExperience = (id) => {
-    setNumberOfPracticalExperiences(
-      numberOfPracticalExperiences.filter((experience) => experience.id !== id),
-    );
-  };
-
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
       [id]: value,
     }));
+    console.log(formData)
   };
 
   return (
@@ -132,12 +99,16 @@ function Form() {
           legend={"Educational Information"}
           className={"educational-information"}
         >
-          {numberOfEducationalExperiences.map((experience) => {
+          {inputConfigsEducationalExperience.map((information) => {
             return (
-              <SchoolInformation
-                key={experience.id}
-                id={experience.id}
-                handleRemove={handleRemoveNumberEducationalExperience}
+              <Input
+                key={information.inputDescription}
+                placeholder={information.placeholder}
+                id={information.id}
+                labelText={information.labeltext}
+                type={information.type}
+                value={formData[information.id]}
+                onChange={handleInputChange}
               />
             );
           })}
@@ -149,12 +120,16 @@ function Form() {
           legend={"Practical Experience"}
           className={"practical-experience"}
         >
-          {numberOfPracticalExperiences.map((experience) => {
+          {inputConfigsPracticalExperience.map((information) => {
             return (
-              <PracticalExperience
-                key={experience.id}
-                id={experience.id}
-                handleRemove={handleRemoveNumberPracticalExperience}
+              <Input
+                key={information.inputDescription}
+                placeholder={information.placeholder}
+                id={information.id}
+                labelText={information.labeltext}
+                type={information.type}
+                value={formData[information.id]}
+                onChange={handleInputChange}
               />
             );
           })}
@@ -169,21 +144,6 @@ function Form() {
             onClick={handleBackButtonClick}
           />
         )}
-        {formPage === 2 && (
-          <Button
-            text={"+"}
-            size={"small"}
-            onClick={handleSetNumberOfEducationalExperiences}
-          />
-        )}
-        {formPage === 3 && (
-          <Button
-            text={"+"}
-            size={"small"}
-            onClick={handleSetNumberOfPracticalExperiences}
-          />
-        )}
-
         {formPage !== 3 && (
           <Button
             text={"Next"}
