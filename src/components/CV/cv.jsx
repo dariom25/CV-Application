@@ -20,7 +20,30 @@ function CV({
 }) {
   return (
     <div className="cv-container">
-        <h1 className="name">{firstName}{lastName}</h1>
+      <h1 className="name">
+        {firstName} {lastName}
+      </h1>
+      <div className="personal-info-container">
+        <div className="personal-info">
+          {birthday}
+          {phone}
+          {mail}
+        </div>
+        <div className="contact-info">
+          {address}
+          {zipCode}
+          {city}
+          {country}
+        </div>
+      </div>
+      <div>
+        <div className="education">
+          {schoolFrom} - {schoolTo}: {school} {studyTitle}
+        </div>
+        <div className="work">
+          {practicalFrom} - {practicalTo}: {company} {positionTitle} {responsibilities}
+        </div>
+      </div>
     </div>
   );
 }
