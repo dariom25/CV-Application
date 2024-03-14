@@ -7,6 +7,7 @@ import { inputConfigsPersonalInformation } from "../Input/inputConfig";
 import { inputConfigsContactDetails } from "../Input/inputConfig";
 import { inputConfigsEducationalExperience } from "../Input/inputConfig";
 import { inputConfigsPracticalExperience } from "../Input/inputConfig";
+import { CV } from "../CV/cv";
 
 function Form() {
   const [formPage, setFormPage] = useState(1);
@@ -51,11 +52,16 @@ function Form() {
     console.log(formData)
   };
 
+  const handleDisplayCV = (e) => {
+    e.preventDefault();
+    setFormPage(formPage + 1);
+  }
+
   return (
     <form className={"form"}>
-      <div className={"formheader"}>
+      {formPage !== 4 && <div className={"formheader"}>
         <h2>Please enter your data here: </h2>
-      </div>
+      </div>}
       {formPage === 1 && (
         <Fieldset
           className={"personal-information"}
@@ -136,6 +142,8 @@ function Form() {
         </Fieldset>
       )}
 
+      {formPage === 4 && <CV firstName={formData.firstName}/>}
+
       <div className="navigational-button-container">
         {formPage !== 1 && (
           <Button
@@ -152,7 +160,7 @@ function Form() {
           />
         )}
 
-        {formPage === 3 && <Button text={"Display CV"} size={"small"} />}
+        {formPage === 3 && <Button text={"Display CV"} size={"small"} onClick={handleDisplayCV}/>}
       </div>
     </form>
   );
