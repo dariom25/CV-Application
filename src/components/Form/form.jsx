@@ -49,19 +49,25 @@ function Form() {
       ...prevFormData,
       [id]: value,
     }));
-    console.log(formData)
   };
 
   const handleDisplayCV = (e) => {
     e.preventDefault();
     setFormPage(formPage + 1);
-  }
+  };
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    setFormPage(formPage - 3);
+  };
 
   return (
     <form className={"form"}>
-      {formPage !== 4 && <div className={"formheader"}>
-        <h2>Please enter your data here: </h2>
-      </div>}
+      {formPage !== 4 && (
+        <div className={"formheader"}>
+          <h2>Please enter your data here: </h2>
+        </div>
+      )}
       {formPage === 1 && (
         <Fieldset
           className={"personal-information"}
@@ -142,17 +148,38 @@ function Form() {
         </Fieldset>
       )}
 
-      {formPage === 4 && <CV firstName={formData.firstName}/>}
+      {formPage === 4 && (
+        <CV
+          firstName={formData.firstName}
+          lastName={formData.lastName}
+          birthday={formData.birthday}
+          phone={formData.phone}
+          mail={formData.mail}
+          address={formData.address}
+          zipCode={formData.zipCode}
+          city={formData.city}
+          country={formData.country}
+          school={formData.school}
+          studyTitle={formData.studyTitle}
+          schoolFrom={formData.schoolFrom}
+          schoolTo={formData.schoolTo}
+          company={formData.company}
+          positionTitle={formData.positionTitle}
+          responsibilities={formData.responsibilities}
+          practicalFrom={formData.practicalFrom}
+          practicalTo={formData.practicalTo}
+        />
+      )}
 
       <div className="navigational-button-container">
-        {formPage !== 1 && (
+        {formPage !== 1 && formPage !== 4 && (
           <Button
             text={"Back"}
             size={"small"}
             onClick={handleBackButtonClick}
           />
         )}
-        {formPage !== 3 && (
+        {formPage < 3 && (
           <Button
             text={"Next"}
             size={"small"}
@@ -160,7 +187,16 @@ function Form() {
           />
         )}
 
-        {formPage === 3 && <Button text={"Display CV"} size={"small"} onClick={handleDisplayCV}/>}
+        {formPage === 3 && (
+          <Button
+            text={"Display CV"}
+            size={"small"}
+            onClick={handleDisplayCV}
+          />
+        )}
+        {formPage === 4 && (
+          <Button text={"Edit"} size="small" onClick={handleEdit} />
+        )}
       </div>
     </form>
   );
